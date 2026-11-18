@@ -1,0 +1,1 @@
+This project builds an automated data pipeline for collecting and processing daily foreign-exchange reference rates for EUR against USD, GBP and JPY. The data is sourced from the Frankfurter API and will be transformed into structured datasets for currency movement analysis.
