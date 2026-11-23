@@ -12,6 +12,7 @@ pull:
       directory: "{{ clone.directory }}/src"
 
 
+
 deployments:
   - name: hello
     entrypoint: banking_fx_data_pipeline/hello.py:hello_pipeline
@@ -22,3 +23,9 @@ deployments:
     schedules:
       - cron: "0 9 * * 1-5"
         timezone: Africa/Accra
+
+  - name: fx-sketch
+    entrypoint: banking_fx_data_pipeline/plan_sketch.py:fx_pipeline
+    work_pool:
+      name: my-managed-pool
+
