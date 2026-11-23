@@ -11,10 +11,14 @@ pull:
   - prefect.deployments.steps.set_working_directory:
       directory: "{{ clone.directory }}/src"
 
+
 deployments:
   - name: hello
-    entrypoint: banking_fx_data_pipeline/hello.py:hello_pipeline. #execute the flow inside the hello.py file
+    entrypoint: banking_fx_data_pipeline/hello.py:hello_pipeline
     parameters:
       name: Prefect Cloud
     work_pool:
       name: my-managed-pool
+    schedules:
+      - cron: "0 9 * * 1-5"
+        timezone: Africa/Accra
