@@ -1,4 +1,3 @@
-
 """Central configuration for the Banking FX Data Pipeline."""
 
 import os
@@ -11,9 +10,7 @@ load_dotenv()
 # Where the Bronze data will be stored.
 PROJECT_ROOT = Path(__file__).resolve().parents[2]
 
-BRONZE_DIR = (
-    PROJECT_ROOT / (os.getenv("BRONZE_DIR") or "data/bronze")
-)
+BRONZE_DIR = PROJECT_ROOT / (os.getenv("BRONZE_DIR") or "data/bronze")
 
 # Currency configuration.
 BASE_CURRENCY = "EUR"

@@ -1,4 +1,3 @@
-
 """Tests for the Banking FX extraction module."""
 
 import json
@@ -50,9 +49,10 @@ def test_a_server_error_is_temporary(monkeypatch):
         extract.fetch_rates(date(2026, 1, 1), date(2026, 1, 3))
 
 
-def test_a_bad_request_is_permanent(monkeypatch):
+def test_a_bad_request_is_permanent(monkeypatch):  # monkeypatch: replaces a function temporarily
     """Check that HTTP 400 raises an HTTP status error."""
     monkeypatch.setattr(httpx, "get", fake_answer(400))
 
+    # Check that the expected HTTP error is raised.
     with pytest.raises(httpx.HTTPStatusError):
         extract.fetch_rates(date(2026, 1, 1), date(2026, 1, 3))
